@@ -5,7 +5,10 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import br.com.igorbag.githubsearch.R
 import br.com.igorbag.githubsearch.data.GitHubService
@@ -29,11 +32,19 @@ class MainActivity : AppCompatActivity() {
 
     // Metodo responsavel por realizar o setup da view e recuperar os Ids do layout
     fun setupView() {
+        val titulo = findViewById<TextView>(R.id.tv_titulo)
+        val nomeUsuario = findViewById<EditText>(R.id.et_nome_usuario)
+        val buttonConfirmar = findViewById<Button>(R.id.btn_confirmar)
+        val rvLista = findViewById<RecyclerView>(R.id.rv_lista_repositories)
         //@TODO 1 - Recuperar os Id's da tela para a Activity com o findViewById
     }
 
     //metodo responsavel por configurar os listeners click da tela
     private fun setupListeners() {
+        val clickConfirmar = findViewById<Button>(R.id.btn_confirmar)
+        clickConfirmar.setOnClickListener{
+            Toast.makeText(this, "Clicou no confirmar", Toast.LENGTH_SHORT).show()
+        }
         //@TODO 2 - colocar a acao de click do botao confirmar
     }
 
